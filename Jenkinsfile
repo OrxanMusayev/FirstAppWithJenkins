@@ -13,8 +13,7 @@ node{
     stages {
         
         stage('Pipeline Initializations') {
-            branchLabel = "main"
-            println "Branch Label Value: ${branchLabel}"
+           
             steps {
                
                 echo 'Starting..'
