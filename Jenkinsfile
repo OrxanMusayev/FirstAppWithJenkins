@@ -15,12 +15,10 @@ pipeline{
         
         stage('Pipeline Initializations') {
             steps {
-               
-                echo 'Starting..'
-                git(
-                    credentialsId:"a85ef7a0-e362-4496-a98d-768681e3a331",
-                    url:"${PROJECT_URL}"
-                )
+                script {
+                    checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'FirstAppWithJenkins']], userRemoteConfigs: [[credentialsId: 'a85ef7a0-e362-4496-a98d-768681e3a331', url: 'https://github.com/OrxanMusayev/FirstAppWithJenkins.git']]])
+                    
+                }
             }
         }
         stage('Build') {
