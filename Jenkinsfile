@@ -1,5 +1,4 @@
-pipeline{
-    agent any
+node {
     environment {
         PROJECT_NAME = "FirstAppWithJenkins"
         PROJECT_URL = "https://github.com/OrxanMusayev/FirstAppWithJenkins.git"
@@ -14,20 +13,11 @@ pipeline{
     stages {
         
         stage('Pipeline Initializations') {
-            steps {
-                script {
-                    checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'FirstAppWithJenkins']], userRemoteConfigs: [[credentialsId: 'a85ef7a0-e362-4496-a98d-768681e3a331', url: 'https://github.com/OrxanMusayev/FirstAppWithJenkins.git']]])
+            checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'FirstAppWithJenkins']], userRemoteConfigs: [[credentialsId: 'a85ef7a0-e362-4496-a98d-768681e3a331', url: 'https://github.com/OrxanMusayev/FirstAppWithJenkins.git']]])
                     
-                }
-            }
         }
         stage('Build') {
-            steps {
-                echo 'Building..'
                 bat "nuget restore \"${workspace}/FirstAppWithJenkins.sln\""
-               
-
-            }
-        }
+           }
     }
 }
