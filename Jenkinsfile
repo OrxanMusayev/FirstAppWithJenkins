@@ -1,5 +1,4 @@
-pipeline {
-    agent any
+node{
     environment {
         PROJECT_NAME = "FirstAppWithJenkins"
         PROJECT_URL = "https://github.com/OrxanMusayev/FirstAppWithJenkins.git"
@@ -17,7 +16,7 @@ pipeline {
             steps {
                 echo 'Starting..'
                 git(
-                    credentialsId:"a85ef7a0-e362-4496-a98d-768681e3a331	",
+                    credentialsId:"a85ef7a0-e362-4496-a98d-768681e3a331",
                     url:"${PROJECT_URL}"
                 )
             }
