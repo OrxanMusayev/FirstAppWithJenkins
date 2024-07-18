@@ -1,4 +1,5 @@
-node{
+pipeline{
+    agent any
     environment {
         PROJECT_NAME = "FirstAppWithJenkins"
         PROJECT_URL = "https://github.com/OrxanMusayev/FirstAppWithJenkins.git"
@@ -11,11 +12,24 @@ node{
         TEST_PROJECT_FILE_PATH="WebApp.Tests/WebApp.Tests.csproj"
     }
     stages {
+        
+        stage('Pipeline Initializations') {
+            branchLabel = "main"
+            println "Branch Label Value: ${branchLabel}"
+            steps {
+               
+                echo 'Starting..'
+                git(
+                    credentialsId:"a85ef7a0-e362-4496-a98d-768681e3a331",
+                    url:"${PROJECT_URL}"
+                )
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Building..'
                 git(
-                    credentialsId:"a85ef7a0-e362-4496-a98d-768681e3a331",
+                    credentialsId:"Github",
                     url:"${PROJECT_URL}"
                 )
             }
