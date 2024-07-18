@@ -24,20 +24,9 @@ pipeline{
         stage('Build') {
             steps {
                 echo 'Building..'
-                git(
-                    credentialsId:"Github",
-                    url:"${PROJECT_URL}"
-                )
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                bat "nuget restore \"${workspace}/FirstAppWithJenkins.sln\""
+               
+
             }
         }
     }
