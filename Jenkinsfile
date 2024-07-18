@@ -14,6 +14,8 @@ node{
         
         stage('Pipeline Initializations') {
             steps {
+                branchLabel = "main"
+                println "Branch Label Value: ${branchLabel}"
                 echo 'Starting..'
                 git(
                     credentialsId:"a85ef7a0-e362-4496-a98d-768681e3a331",
