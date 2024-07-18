@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "6zg2QOERzJxYIb3uuOURNC4HosYZdmCoxrg7T4pSbec=",
+  "Source": "FirstAppWithJenkins",
+  "BasePath": "_content/FirstAppWithJenkins",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
